@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Cancellation Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="container-head">
+            <h1 class="">Booking Cancellation Prediction App</h1>
+        </div>
+    </header>
+
+    <div class="container-body">
+        <form method="POST" action="/">
+            <div class="form-group">
+                <label for="type_of_meal_plan">Type of Meal Plan:</label>
+                <select name="type_of_meal_plan" required>
+                    <option value="Meal Plan 1">Meal Plan 1</option>
+                    <option value="Meal Plan 2">Meal Plan 2</option>
+                    <option value="Meal Plan 3">Meal Plan 3</option>
+                    <option value="No Meal">No Meal</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="room_type_reserved">Room Type Reserved:</label>
+                <select name="room_type_reserved" required>
+                    <option value="Room Type 1">Room Type 1</option>
+                    <option value="Room Type 2">Room Type 2</option>
+                    <option value="Room Type 3">Room Type 3</option>
+                    <option value="Room Type 4">Room Type 4</option>
+                    <option value="Room Type 5">Room Type 5</option>
+                    <option value="Room Type 6">Room Type 6</option>
+                    <option value="Room Type 7">Room Type 7</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="market_segment_type">Market Segment Type:</label>
+                <select name="market_segment_type" required>
+                    <option value="Online">Online</option>
+                    <option value="Offline">Offline</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="lead_time">Lead Time:</label>
+                <input type="number" name="lead_time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="avg_price_per_room">Average Price Per Room:</label>
+                <input type="number" name="avg_price_per_room" required>
+            </div>
+
+            <div class="form-group">
+                <label for="no_of_special_requests">Number of Special Requests:</label>
+                <input type="number" name="no_of_special_requests" required>
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if result is not none %}
+        <div class="result">
+            <h2>Prediction Result</h2>
+            <p>Cancellation Prediction: <span class="prediction">{{ 'Yes' if result == 1 else 'No' }}</span></p>
+            <p>Probability of Cancellation: <span class="prediction">{{ '%.2f'|format(prob) }}</span></p>
+        </div>
+        {% endif %}
+    </div>
+
+    <footer>
+        <p></p>
+    </footer>
+</body>
+
+</html>
