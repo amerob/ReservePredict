@@ -81,5 +81,5 @@ hotel-booking-cancellation-prediction/
 
 ## License 📄
 
-MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - see the [LICENSE](https://github.com/amerob/ReservePredict/blob/main/LICENSE.MIT) file for details.
 
